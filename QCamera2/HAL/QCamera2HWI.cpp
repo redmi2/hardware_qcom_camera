@@ -1013,6 +1013,7 @@ QCamera2HardwareInterface::QCamera2HardwareInterface(int cameraId)
       mPreviewFrameSkipValid(0)
 {
 #ifdef TARGET_TS_MAKEUP
+    mMakeUpBuf = NULL;
     memset(&mFaceRect, -1, sizeof(mFaceRect));
 #endif
     getLogLevel();
