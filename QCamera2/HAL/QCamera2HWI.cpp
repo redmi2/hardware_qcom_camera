@@ -2694,6 +2694,7 @@ int QCamera2HardwareInterface::takePicture()
                 rc =  m_channels[QCAMERA_CH_TYPE_CAPTURE]->start();
                 if (rc != NO_ERROR) {
                     ALOGE("%s: cannot start capture channel", __func__);
+                    waitDefferedWork(mReprocJob);
                     delChannel(QCAMERA_CH_TYPE_CAPTURE);
                     return rc;
                 }
@@ -2713,6 +2714,7 @@ int QCamera2HardwareInterface::takePicture()
                 if ( mLongshotEnabled ) {
                     rc = longShot();
                     if (NO_ERROR != rc) {
+                        waitDefferedWork(mReprocJob);
                         delChannel(QCAMERA_CH_TYPE_CAPTURE);
                         return rc;
                     }
