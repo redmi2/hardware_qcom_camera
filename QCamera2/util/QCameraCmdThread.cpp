@@ -29,6 +29,7 @@
 
 #include <utils/Errors.h>
 #include <utils/Log.h>
+#include <sys/prctl.h>
 #include "QCameraCmdThread.h"
 
 using namespace android;
